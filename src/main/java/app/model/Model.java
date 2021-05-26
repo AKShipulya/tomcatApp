@@ -36,6 +36,7 @@ public class Model {
     }
 
     public Optional<User> getByName(String name) {
+        System.out.println("Name from Model: " + name);
         return model.stream()
                 .filter(p -> p.getName().equals(name))
                 .findFirst();
@@ -43,8 +44,8 @@ public class Model {
 
     public void delete(String name) {
         model.stream()
-        .filter(p -> p.getName().equals(name))
-        .findFirst();
+                .filter(p -> p.getName().equals(name))
+                .findFirst();
     }
 
 }

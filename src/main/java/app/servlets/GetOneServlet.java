@@ -9,24 +9,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 public class GetOneServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/get.jsp");
-        requestDispatcher.forward(request, response);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String name = getInitParameter("name");
+        String name = request.getParameter("name");
         Model model = Model.getInstance();
         model.getByName(name);
+        request.getAttribute("userName");
 
-        request.getAttribute("name");
-        doGet(request, response);
-
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/get.jsp");
+        requestDispatcher.forward(request, response);
     }
 
 }

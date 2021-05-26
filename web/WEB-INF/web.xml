@@ -23,12 +23,30 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>changeUser</servlet-name>
+        <servlet-name>get</servlet-name>
+        <servlet-class>app.servlets.GetOneServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>get</servlet-name>
+        <url-pattern>/get</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>update</servlet-name>
         <servlet-class>app.servlets.UpdateServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>changeUser</servlet-name>
-        <url-pattern>/changeUser</url-pattern>
+        <servlet-name>update</servlet-name>
+        <url-pattern>/update</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>delete</servlet-name>
+        <servlet-class>app.servlets.DeleteServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>delete</servlet-name>
+        <url-pattern>/delete</url-pattern>
     </servlet-mapping>
 
 </web-app>

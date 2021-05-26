@@ -12,20 +12,21 @@ import java.io.IOException;
 
 public class GetOneServlet extends HttpServlet {
 
-    private User user;
-
-    public GetOneServlet(User user) {
-        this.user = user;
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/get.jsp");
+        requestDispatcher.forward(request, response);
     }
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String name = getInitParameter("name");
         Model model = Model.getInstance();
-        String name = model.getByName(user.getName());
-        request.setAttribute("userNames", name);
+        model.getByName(name);
 
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher("views/list.jsp");
-        requestDispatcher.forward(request, response);
+        request.getAttribute("name");
+        doGet(request, response);
+
     }
 
 }
